@@ -1,3 +1,4 @@
 dashboard/client/.env
 dashboard/client/node_modules
 dashboard/server/node_modules
+loq.ppk
