@@ -28,6 +28,38 @@ type Response struct {
 
 var db *sql.DB
 
+func getTouristData(w http.ResponseWriter, r *http.Request) {
+    if r.Method != "GET" {
+        http.Error(w, "Only GET method is allowed", http.StatusMethodNotAllowed)
+        return
+    }
+
+    did := r.URL.Path[len("/tourist-data/"):]
+
+    var tourist Tourist
+    var familyContacts []byte
+
+    sqlStatement := `SELECT did, government_id, nationality, first_name, last_name, family_contacts FROM tourists WHERE did = $1`
+    row := db.QueryRow(sqlStatement, did)
+    err := row.Scan(&tourist.DID, &tourist.GovernmentID, &tourist.Nationality, &tourist.FirstName, &tourist.LastName, &familyContacts)
+
+    if err != nil {
+        if err == sql.ErrNoRows {
+            http.Error(w, "Tourist not found", http.StatusNotFound)
+        } else {
+            log.Printf("Error querying tourist data: %v", err)
+            http.Error(w, "Internal server error", http.StatusInternalServerError)
+        }
+        return
+    }
+    
+    // Set the family contacts field
+    tourist.FamilyContacts = json.RawMessage(familyContacts)
+
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(tourist)
+}
+
 func main() {
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		os.Getenv("DB_HOST"),
