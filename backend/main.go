@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	_ "github.com/lib/pq"
 	"github.com/google/uuid"
@@ -35,19 +36,30 @@ func main() {
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_NAME"),
 	)
+
 	var err error
-	db, err = sql.Open("postgres", connStr)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	for i := 0; i < 10; i++ {
+		db, err = sql.Open("postgres", connStr)
+		if err != nil {
+			log.Printf("Error opening database: %v. Retrying in 5 seconds...", err)
+			time.Sleep(5 * time.Second)
+			continue
+		}
 
-	err = db.Ping()
-	if err != nil {
-		log.Fatal(err)
+		err = db.Ping()
+		if err == nil {
+			log.Println("Successfully connected to the database!")
+			break
+		}
+
+		log.Printf("Error pinging database: %v. Retrying in 5 seconds...", err)
+		db.Close()
+		time.Sleep(5 * time.Second)
 	}
 
-	log.Println("Successfully connected to the database!")
+	if err != nil {
+		log.Fatalf("Could not connect to the database after multiple retries: %v", err)
+	}
 
 	http.HandleFunc("/register-tourist", registerTourist)
 	port := os.Getenv("PORT")
