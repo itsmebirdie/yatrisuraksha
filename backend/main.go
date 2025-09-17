@@ -93,6 +93,7 @@ func main() {
 		log.Fatalf("Could not connect to the database after multiple retries: %v", err)
 	}
 
+	http.HandleFunc("/tourist-data/", getTouristData)
 	http.HandleFunc("/register-tourist", registerTourist)
 	port := os.Getenv("PORT")
 	if port == "" {
