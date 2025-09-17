@@ -14,11 +14,12 @@ import (
 )
 
 type Tourist struct {
-	GovernmentID   string          `json:"government_id"`
-	Nationality    string          `json:"nationality"`
-	FirstName      string          `json:"first_name"`
-	LastName       string          `json:"last_name"`
-	FamilyContacts json.RawMessage `json:"family_contacts"`
+    DID            string          `json:"did"`
+    GovernmentID   string          `json:"government_id"`
+    Nationality    string          `json:"nationality"`
+    FirstName      string          `json:"first_name"`
+    LastName       string          `json:"last_name"`
+    FamilyContacts json.RawMessage `json:"family_contacts"`
 }
 
 type Response struct {
@@ -53,7 +54,6 @@ func getTouristData(w http.ResponseWriter, r *http.Request) {
         return
     }
     
-    // Set the family contacts field
     tourist.FamilyContacts = json.RawMessage(familyContacts)
 
     w.Header().Set("Content-Type", "application/json")
