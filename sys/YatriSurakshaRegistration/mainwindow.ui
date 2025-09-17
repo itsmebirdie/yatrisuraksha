@@ -145,8 +145,8 @@
    <widget class="QLabel" name="statusLabel">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>170</y>
+      <x>260</x>
+      <y>80</y>
       <width>321</width>
       <height>51</height>
      </rect>
@@ -197,6 +197,19 @@
     </property>
     <property name="text">
      <string>YatriSuraksha</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="qrCodeLabel">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>120</y>
+      <width>221</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

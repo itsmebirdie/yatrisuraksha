@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include "qrcodegen.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,6 +24,9 @@ public:
 private slots:
     void on_registerButton_clicked();
     void onRegistrationFinished(QNetworkReply *reply);
+
+private:
+    void displayQrCode(const QString& did);
 
 private:
     Ui::MainWindow *ui;
