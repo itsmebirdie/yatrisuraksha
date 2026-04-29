@@ -29,8 +29,7 @@
 ## Project Overview
 
 YatriSuraksha (*Traveller Safety* in Hindi) is a multi-layered safety ecosystem that
-addresses the critical gap in India's tourism infrastructure, particularly in the
-Northeast where tourist safety is compromised by:
+addresses the critical gap in India's tourism infrastructure, where tourist safety is compromised by:
 
 - Cellular dead zones in forests, high-altitude passes, and river valleys
 - Fragmented, non-digital tourist identity records
