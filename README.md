@@ -1,4 +1,4 @@
-# YatriSuraksha 🛡️
+# YatriSuraksha
 ### Smart Tourist Safety, Monitoring & Incident Response System
 **Smart India Hackathon 2025 · Problem Statement SIH25002**
 *Ministry of Development of North Eastern Region · Theme: Travel & Tourism*
