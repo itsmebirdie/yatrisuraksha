@@ -1,7 +1,5 @@
 # YatriSuraksha
 ### Smart Tourist Safety, Monitoring & Incident Response System
-**Smart India Hackathon 2025 · Problem Statement SIH25002**
-*Ministry of Development of North Eastern Region · Theme: Travel & Tourism*
 
 ---
 
@@ -34,10 +32,10 @@ YatriSuraksha (*Traveller Safety* in Hindi) is a multi-layered safety ecosystem 
 addresses the critical gap in India's tourism infrastructure, particularly in the
 Northeast where tourist safety is compromised by:
 
-- ❌ Cellular dead zones in forests, high-altitude passes, and river valleys
-- ❌ Fragmented, non-digital tourist identity records
-- ❌ Slow, non-integrated emergency response systems
-- ❌ Absence of tamper-proof incident and FIR (First Information Report) logging
+- Cellular dead zones in forests, high-altitude passes, and river valleys
+- Fragmented, non-digital tourist identity records
+- Slow, non-integrated emergency response systems
+- Absence of tamper-proof incident and FIR (First Information Report) logging
 
 **YatriSuraksha solves this through five tightly integrated pillars:**
 
